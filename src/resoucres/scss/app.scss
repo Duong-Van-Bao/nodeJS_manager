@@ -1,0 +1,9 @@
+@import '_variables';
+h1{
+    color: $color-red;
+}
+.container{
+    h1{
+        color: green;
+    }
+}
