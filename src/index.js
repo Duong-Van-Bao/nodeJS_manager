@@ -8,6 +8,13 @@ const port = 3000
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
+
+//XMLHttpRequest,fetch,axios,...
+
 //HTTP logger
 // app.use(morgan('combined'))
 
@@ -21,7 +28,6 @@ app.set('views', path.join(__dirname, 'resoucres/views'));
 app.get('/', (req, res) => {
     res.render('home')
 })
-
 
 app.post('/', (req, res) => {
     res.render('home')
@@ -43,6 +49,11 @@ app.post('/news', (req, res) => {
 
 app.get('/search', (req, res) => {
     res.render('search')
+})
+
+app.post('/search', (req, res) => {
+    console.log(req.body);
+    res.send('');
 })
 
 app.listen(port, () => {
