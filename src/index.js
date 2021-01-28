@@ -20,17 +20,30 @@ app.set('views', path.join(__dirname, 'resoucres/views'));
 
 app.get('/', (req, res) => {
     res.render('home')
+})
 
-});
+
+app.post('/', (req, res) => {
+    res.render('home')
+})
 
 app.get('/news', (req, res) => {
     res.render('news')
-}); 
+});
 
 app.get('/search', (req, res) => {
     console.log(req.query.q);   //lây ra gia trị trong query
     res.render('search')
 });
+
+app.post('/news', (req, res) => {
+    res.render('news')
+
+})
+
+app.get('/search', (req, res) => {
+    res.render('search')
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
